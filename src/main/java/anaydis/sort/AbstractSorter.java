@@ -1,5 +1,7 @@
 package anaydis.sort;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Comparator;
 import java.util.List;
 /**
@@ -23,6 +25,10 @@ abstract class AbstractSorter implements Sorter {
 
     <T> void swap(List<T>  list, int i, int j){
         list.set(j, list.set(i, list.get(j)));
+    }
+
+    @NotNull public SorterType getType(){
+        return type;
     }
 
 }

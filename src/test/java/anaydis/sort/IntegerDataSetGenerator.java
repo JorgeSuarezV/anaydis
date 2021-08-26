@@ -10,34 +10,32 @@ public class IntegerDataSetGenerator implements DataSetGenerator<Integer>{
 
     List<Integer> ints;
 
-    public IntegerDataSetGenerator() {
+    public void intsGenerator(int length){
         ints = new ArrayList<>();
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < length; i++) {
             ints.add((int) ((Math.random() * (1000 - -1000)) + -1000));
         }
     }
 
-
-
     @Override
     public @NotNull List<Integer> createAscending(int length) {
-        if (length > 10000) throw new IllegalArgumentException("Watch out! StringDataSetGenerator can generate up to " + 1000 + " values only.");
-        ArrayList asc = new ArrayList(ints.subList(0,length));
+        intsGenerator(length);
+        ArrayList<Integer> asc = new ArrayList<>(ints.subList(0,length));
         asc.sort(getComparator());
         return asc;
     }
 
     @Override
     public @NotNull List<Integer> createDescending(int length) {
-        if (length > 10000) throw new IllegalArgumentException("Watch out! StringDataSetGenerator can generate up to " + 1000 + " values only.");
-        ArrayList des = new ArrayList(ints.subList(0,length));
+        intsGenerator(length);
+        ArrayList<Integer> des = new ArrayList<>(ints.subList(0,length));
         des.sort(getComparator().reversed());
         return des;
     }
 
     @Override
     public @NotNull List<Integer> createRandom(int length) {
-        if (length > 10000) throw new IllegalArgumentException("Watch out! StringDataSetGenerator can generate up to " + 1000 + " values only.");
+        intsGenerator(length);
         return new ArrayList<>(ints.subList(0,length));
     }
 
