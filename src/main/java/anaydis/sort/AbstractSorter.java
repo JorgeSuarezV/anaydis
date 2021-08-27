@@ -1,6 +1,7 @@
 package anaydis.sort;
 
 import anaydis.sort.gui.ObservableSorter;
+import anaydis.sort.gui.SorterListener;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -44,6 +45,21 @@ public abstract class AbstractSorter implements ObservableSorter {
     public void notifys(int i, int j){
         for (int k = 0; i < listeners.size(); i++) {
             listeners.get(k).swap(i,j);
+        }
+    }
+
+    @Override
+    public void addSorterListener(@NotNull SorterListener listener) {
+        listeners.add((MetricListener) listener);
+    }
+
+    @Override
+    public void removeSorterListener(@NotNull SorterListener listener) {
+        MetricListener listener1 = (MetricListener) listener;
+        for (int i = 0; i < listeners.size(); i++) {
+            if (listener1.equals(listeners.get(i))){
+                listeners.remove(i);
+            }
         }
     }
 }

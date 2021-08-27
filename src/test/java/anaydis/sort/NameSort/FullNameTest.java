@@ -1,7 +1,5 @@
-package anaydis.sort.NameSort;
+package anaydis.sort.nameSort;
 
-import anaydis.sort.Sorter;
-import anaydis.sort.SorterProviderImpl;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,14 +1,9 @@
-package anaydis.sort.NameSort;
+package anaydis.sort.nameSort;
 
-import anaydis.sort.AbstractSorter;
 import anaydis.sort.Sorter;
 import anaydis.sort.SorterProviderImpl;
 import anaydis.sort.SorterType;
-import anaydis.sort.gui.ObservableSorter;
-import anaydis.sort.gui.SorterListener;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.Comparator;
 import java.util.List;
 
 public class FullNameSort {

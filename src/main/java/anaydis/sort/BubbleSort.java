@@ -27,20 +27,8 @@ public class BubbleSort extends AbstractSorter{
         }
     }
 
-
     @Override
     public @NotNull SorterType getType() {
         return SorterType.BUBBLE;
-    }
-
-
-    @Override
-    public void addSorterListener(@NotNull SorterListener listener) {
-
-    }
-
-    @Override
-    public void removeSorterListener(@NotNull SorterListener listener) {
-
     }
 }
