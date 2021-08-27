@@ -1,13 +1,17 @@
 package anaydis.sort;
 
+import anaydis.sort.gui.ObservableSorter;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 /**
  * Abstract sorter: all sorter implementations should subclass this class.
  */
-abstract class AbstractSorter implements Sorter {
+public abstract class AbstractSorter implements ObservableSorter {
+
+    ArrayList<MetricListener> listeners = new ArrayList<MetricListener>();
 
     private final SorterType type;
 
@@ -31,4 +35,15 @@ abstract class AbstractSorter implements Sorter {
         return type;
     }
 
+    public void notifyc(int i, int j){
+        for (int k = 0; i < listeners.size(); i++) {
+            listeners.get(k).greater(i,j);
+        }
+    }
+
+    public void notifys(int i, int j){
+        for (int k = 0; i < listeners.size(); i++) {
+            listeners.get(k).swap(i,j);
+        }
+    }
 }

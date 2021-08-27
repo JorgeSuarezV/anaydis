@@ -1,4 +1,4 @@
-package anaydis.sort;
+package anaydis.sort.NameSort;
 
 public class FullName {
 
@@ -17,5 +17,9 @@ public class FullName {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public void printName(){
+        System.out.println(lastName + ", " + firstName);
     }
 }

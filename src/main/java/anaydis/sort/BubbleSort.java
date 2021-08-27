@@ -1,5 +1,6 @@
 package anaydis.sort;
 
+import anaydis.sort.gui.SorterListener;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Comparator;
@@ -18,15 +19,28 @@ public class BubbleSort extends AbstractSorter{
             for (int j = list.size()-1; j > i; j--) {
                 if (greater(comparator, list , j-1, j)){
                     swap(list, j-1, j);
+                    notifys(j-1,j);
                     x = 0;
-                }
+                }notifyc(j-1, j);
             }
             if (x == 1) return;
         }
     }
 
+
     @Override
     public @NotNull SorterType getType() {
         return SorterType.BUBBLE;
+    }
+
+
+    @Override
+    public void addSorterListener(@NotNull SorterListener listener) {
+
+    }
+
+    @Override
+    public void removeSorterListener(@NotNull SorterListener listener) {
+
     }
 }
