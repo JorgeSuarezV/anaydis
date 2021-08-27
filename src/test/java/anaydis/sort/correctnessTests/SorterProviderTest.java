@@ -1,5 +1,8 @@
-package anaydis.sort;
+package anaydis.sort.correctnessTests;
 
+import anaydis.sort.Sorter;
+import anaydis.sort.SorterProvider;
+import anaydis.sort.SorterProviderImpl;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

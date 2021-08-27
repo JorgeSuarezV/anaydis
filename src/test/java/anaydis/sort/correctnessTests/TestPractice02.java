@@ -1,5 +1,9 @@
-package anaydis.sort;
+package anaydis.sort.correctnessTests;
 
+import anaydis.sort.Sorter;
+import anaydis.sort.SorterProviderImpl;
+import anaydis.sort.SorterType;
+import org.jetbrains.annotations.NotNull;
 import org.junit.Test;
 
 public class TestPractice02 extends SorterTest {

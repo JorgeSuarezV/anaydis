@@ -1,18 +1,14 @@
-package anaydis.sort;
+package anaydis.sort.correctnessTests;
 
-import anaydis.sort.gui.ObservableSorter;
-import anaydis.sort.gui.SorterListener;
-import org.jetbrains.annotations.NotNull;
+import anaydis.sort.AbstractSorter;
+import anaydis.sort.MetricListener;
+import anaydis.sort.SorterProviderImpl;
+import anaydis.sort.SorterType;
 import org.junit.Assert;
 import org.junit.Test;
-
-
 import java.util.ArrayList;
 import java.util.Comparator;
-
 import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class MetricListenerTest {
 
@@ -29,9 +25,9 @@ public class MetricListenerTest {
         array.add(423);
         array.add(540);
         SorterProviderImpl sorterProvider = new SorterProviderImpl();
-        ObservableSorter sorter1 = (ObservableSorter) sorterProvider.getSorterForType(SorterType.BUBBLE);
-        ObservableSorter sorter2 = (ObservableSorter) sorterProvider.getSorterForType(SorterType.INSERTION);
-        ObservableSorter sorter3 = (ObservableSorter) sorterProvider.getSorterForType(SorterType.SELECTION);
+        AbstractSorter sorter1 = (AbstractSorter) sorterProvider.getSorterForType(SorterType.BUBBLE);
+        AbstractSorter sorter2 = (AbstractSorter) sorterProvider.getSorterForType(SorterType.INSERTION);
+        AbstractSorter sorter3 = (AbstractSorter) sorterProvider.getSorterForType(SorterType.SELECTION);
         MetricListener listener1 = new MetricListener();
         MetricListener listener2 = new MetricListener();
         MetricListener listener3 = new MetricListener();
@@ -44,6 +40,12 @@ public class MetricListenerTest {
         sorter1.sort(Comparator.naturalOrder(), copy1);
         sorter2.sort(Comparator.naturalOrder(), copy2);
         sorter3.sort(Comparator.naturalOrder(), copy3);
+        sorter1.removeSorterListener(listener1);
+        sorter2.removeSorterListener(listener2);
+        sorter3.removeSorterListener(listener3);
+        Assert.assertTrue(sorter1.getListeners().isEmpty());
+        Assert.assertTrue(sorter2.getListeners().isEmpty());
+        Assert.assertTrue(sorter3.getListeners().isEmpty());
         Assert.assertEquals(44, listener1.getComparisons());
         Assert.assertEquals(22, listener1.getSwaps());
         Assert.assertEquals(31, listener2.getComparisons() );

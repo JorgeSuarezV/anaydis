@@ -1,4 +1,6 @@
-package anaydis.sort;
+package anaydis.sort.correctnessTests;
+
+import anaydis.sort.*;
 
 /**
  * Sorter tests should subclass this abstract implementation

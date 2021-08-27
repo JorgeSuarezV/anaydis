@@ -7,7 +7,6 @@ public class MetricListener implements SorterListener  {
     private int swaps = 0;
     private int comparisons = 0;
 
-
     @Override
     public void box(int from, int to) {}
 
@@ -33,5 +32,10 @@ public class MetricListener implements SorterListener  {
 
     public int getSwaps() {
         return swaps;
+    }
+
+    public void reset(){
+        swaps = 0;
+        comparisons = 0;
     }
 }
