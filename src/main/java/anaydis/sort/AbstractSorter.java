@@ -12,8 +12,7 @@ import java.util.List;
  */
 public abstract class AbstractSorter implements ObservableSorter {
 
-    ArrayList<MetricListener> listeners = new ArrayList<>();
-
+    private ArrayList<MetricListener> listeners = new ArrayList<>();
     private final SorterType type;
 
     public AbstractSorter(SorterType type) {
@@ -43,10 +42,10 @@ public abstract class AbstractSorter implements ObservableSorter {
     }
 
     public void notifys(int i, int j){
-        listeners.get(0).swap(i,j);
+        /*listeners.get(0).swap(i,j);
         for (int k = 0; i < listeners.size(); i++) {
             listeners.get(k).swap(i,j);
-        }
+        }*/
     }
 
     @Override
