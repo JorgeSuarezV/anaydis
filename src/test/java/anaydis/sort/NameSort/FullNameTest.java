@@ -7,10 +7,8 @@ import org.junit.Assert;
 import java.util.List;
 
 public class FullNameTest {
-    public static void main(String[] args) {
-        testFullNameSort();
-    }
-    public static void testFullNameSort(){
+
+    public void testFullNameSort(){
         FullNameGenerator fullNameGenerator = new FullNameGenerator();
         List<FullName> fullNames = fullNameGenerator.createRandom(50);
         FullNameSort fullNameSort = new FullNameSort();
