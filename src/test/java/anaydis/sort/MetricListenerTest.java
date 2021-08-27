@@ -15,7 +15,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class MetricListenerTest {
-/*
+
     @Test public void ListenerRecordsTest() {
         List<Integer> array = new ArrayList<>();
         array.add(80);
@@ -44,13 +44,12 @@ public class MetricListenerTest {
         sorter1.sort(Comparator.naturalOrder(), copy1);
         sorter2.sort(Comparator.naturalOrder(), copy2);
         sorter3.sort(Comparator.naturalOrder(), copy3);
-
-        Assert.assertEquals(63, listener1.getComparisons());
+        Assert.assertEquals(44, listener1.getComparisons());
         Assert.assertEquals(22, listener1.getSwaps());
         Assert.assertEquals(31, listener2.getComparisons() );
-        Assert.assertEquals(7, listener2.getSwaps());
+        Assert.assertEquals(22, listener2.getSwaps());
         Assert.assertEquals(45, listener3.getComparisons());
-        Assert.assertEquals(22, listener3.getSwaps());
-    }*/
+        Assert.assertEquals(6, listener3.getSwaps());
+    }
 }
 

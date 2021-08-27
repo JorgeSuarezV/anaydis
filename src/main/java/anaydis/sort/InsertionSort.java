@@ -31,14 +31,4 @@ public class InsertionSort extends AbstractSorter{
     public @NotNull SorterType getType() {
         return SorterType.INSERTION;
     }
-
-    @Override
-    public void addSorterListener(@NotNull SorterListener listener) {
-
-    }
-
-    @Override
-    public void removeSorterListener(@NotNull SorterListener listener) {
-
-    }
 }

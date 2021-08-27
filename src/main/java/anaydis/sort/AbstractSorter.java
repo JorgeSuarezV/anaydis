@@ -36,16 +36,15 @@ public abstract class AbstractSorter implements ObservableSorter {
     }
 
     public void notifyc(int i, int j){
-        for (int k = 0; i < listeners.size(); i++) {
+        for (int k = 0; k < listeners.size(); k++) {
             listeners.get(k).greater(i,j);
         }
     }
 
     public void notifys(int i, int j){
-        /*listeners.get(0).swap(i,j);
-        for (int k = 0; i < listeners.size(); i++) {
+        for (int k = 0; k < listeners.size(); k++) {
             listeners.get(k).swap(i,j);
-        }*/
+        }
     }
 
     @Override

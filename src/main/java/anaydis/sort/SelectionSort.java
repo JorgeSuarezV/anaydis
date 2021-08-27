@@ -33,14 +33,4 @@ public class SelectionSort extends AbstractSorter{
     public @NotNull SorterType getType() {
         return SorterType.SELECTION;
     }
-
-    @Override
-    public void addSorterListener(@NotNull SorterListener listener) {
-
-    }
-
-    @Override
-    public void removeSorterListener(@NotNull SorterListener listener) {
-
-    }
 }
