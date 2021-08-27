@@ -4,8 +4,8 @@ import anaydis.sort.gui.SorterListener;
 
 public class MetricListener implements SorterListener  {
 
-    int swaps = 0;
-    int comparisons = 0;
+    private int swaps = 0;
+    private int comparisons = 0;
 
 
     @Override
