@@ -3,7 +3,6 @@ package anaydis.sort.nameSort;
 import anaydis.sort.Sorter;
 import anaydis.sort.SorterProviderImpl;
 import anaydis.sort.SorterType;
-
 import java.util.List;
 
 public class FullNameSort {

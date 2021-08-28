@@ -2,7 +2,6 @@ package anaydis.sort.nameSort;
 
 import org.junit.Assert;
 import org.junit.Test;
-
 import java.util.List;
 
 public class FullNameTest {
@@ -18,7 +17,5 @@ public class FullNameTest {
             }
             Assert.assertTrue(fullNames.get(i-1).getLastName().compareTo(fullNames.get(i).getLastName()) < 0);
         }
-
     }
-
 }

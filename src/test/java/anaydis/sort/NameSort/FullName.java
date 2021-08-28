@@ -10,16 +10,11 @@ public class FullName {
         this.lastName = lastName;
     }
 
-
     public String getFirstName() {
         return firstName;
     }
 
     public String getLastName() {
         return lastName;
-    }
-
-    public void printName(){
-        System.out.println(lastName + ", " + firstName);
     }
 }

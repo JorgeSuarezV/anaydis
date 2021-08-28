@@ -9,7 +9,7 @@ import java.util.List;
 
 public abstract class AbstractSorter implements ObservableSorter {
 
-    private ArrayList<SorterListener> listeners = new ArrayList<>();
+    private final ArrayList<SorterListener> listeners = new ArrayList<>();
     private final SorterType type;
 
     public AbstractSorter(SorterType type) {
