@@ -12,7 +12,7 @@ import java.util.List;
  */
 public abstract class AbstractSorter implements ObservableSorter {
 
-    private ArrayList<MetricListener> listeners = new ArrayList<>();
+    private ArrayList<SorterListener> listeners = new ArrayList<>();
     private final SorterType type;
 
     public AbstractSorter(SorterType type) {
@@ -20,14 +20,17 @@ public abstract class AbstractSorter implements ObservableSorter {
     }
 
     <T> boolean greater(Comparator<T> comparator, List<T> list, int i, int j){
+        notifyC(i,j);
         return comparator.compare(list.get(i), list.get(j)) > 0;
     }
 
     <T> boolean less(Comparator<T> comparator, List<T> list, int i, int j){
+        notifyC(i,j);
         return comparator.compare(list.get(i), list.get(j)) < 0;
     }
 
     <T> void swap(List<T>  list, int i, int j){
+        notifyS(i,j);
         list.set(j, list.set(i, list.get(j)));
     }
 
@@ -35,21 +38,21 @@ public abstract class AbstractSorter implements ObservableSorter {
         return type;
     }
 
-    public void notifyc(int i, int j){
-        for (int k = 0; k < listeners.size(); k++) {
-            listeners.get(k).greater(i,j);
+    public void notifyC(int i, int j){
+        for (SorterListener listener : listeners) {
+            listener.greater(i, j);
         }
     }
 
-    public void notifys(int i, int j){
-        for (int k = 0; k < listeners.size(); k++) {
-            listeners.get(k).swap(i,j);
+    public void notifyS(int i, int j){
+        for (SorterListener listener : listeners) {
+            listener.swap(i, j);
         }
     }
 
     @Override
     public void addSorterListener(@NotNull SorterListener listener) {
-        listeners.add((MetricListener) listener);
+        listeners.add(listener);
     }
 
     @Override
@@ -60,5 +63,9 @@ public abstract class AbstractSorter implements ObservableSorter {
                 listeners.remove(i);
             }
         }
+    }
+
+    public ArrayList<SorterListener> getListeners() {
+        return listeners;
     }
 }
