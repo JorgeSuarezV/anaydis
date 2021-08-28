@@ -1,12 +1,12 @@
 package anaydis.sort;
 
 import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.Map;
 
     public class SorterProviderImpl implements SorterProvider{
+
         private final Map<SorterType,Sorter> sorters = new EnumMap<>(SorterType.class);
 
         public SorterProviderImpl(){
@@ -20,9 +20,7 @@ import java.util.Map;
 
         @Override
         public @NotNull Iterable<Sorter> getAllSorters() {
-            ArrayList<Sorter> sorterArrayList = new ArrayList<>();
-            for(Sorter sorter : sorters.values()) sorterArrayList.add(sorter);
-            return sorterArrayList;
+            return new ArrayList<>(sorters.values());
         }
 
         @Override

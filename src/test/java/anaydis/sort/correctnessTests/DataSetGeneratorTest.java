@@ -3,7 +3,6 @@ package anaydis.sort.correctnessTests;
 import anaydis.sort.DataSetGenerator;
 import anaydis.sort.StringDataSetGenerator;
 import org.junit.Test;
-
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;

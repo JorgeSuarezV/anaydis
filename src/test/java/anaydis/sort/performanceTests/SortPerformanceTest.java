@@ -3,14 +3,13 @@ package anaydis.sort.performanceTests;
 import anaydis.sort.SorterProviderImpl;
 import anaydis.sort.SorterType;
 import org.junit.Test;
-
 import java.util.ArrayList;
 
 public class SortPerformanceTest {
     @Test
     public void performanceTest() {
-        ArrayList<SorterType> sorterTypes = new ArrayList();
-        ArrayList<Integer> sizes = new ArrayList();
+        ArrayList<SorterType> sorterTypes = new ArrayList<>();
+        ArrayList<Integer> sizes = new ArrayList<>();
         SorterProviderImpl sorterProvider = new SorterProviderImpl();
         sorterTypes.add(SorterType.BUBBLE);
         sorterTypes.add(SorterType.INSERTION);

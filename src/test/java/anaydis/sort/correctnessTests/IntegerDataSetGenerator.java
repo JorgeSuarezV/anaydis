@@ -2,7 +2,6 @@ package anaydis.sort.correctnessTests;
 
 import anaydis.sort.DataSetGenerator;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
