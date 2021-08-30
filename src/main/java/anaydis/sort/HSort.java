@@ -1,11 +1,15 @@
 package anaydis.sort;
 
 import org.jetbrains.annotations.NotNull;
-
 import java.util.Comparator;
 import java.util.List;
 
 public class HSort extends AbstractSorter{
+
+    private Comparator<Object> comparator;
+    private List<Object> list;
+    private int h;
+
     public HSort() {
         super(SorterType.H);
     }
@@ -14,22 +18,14 @@ public class HSort extends AbstractSorter{
         sort(comparator, list, 1);
     }
 
-    public <T> void sort(Comparator<T> comparator, List<T> list, int h) {
-        auxSort(comparator, list, h);
-    }
-
-    public <T> void auxSort(@NotNull Comparator<T> comparator, @NotNull List<T> list, int h){
-        for (int i = 1; i <= h; i++) {
-            for (int k = 0; k < list.size()/h; k++) {
-                for (int j = i-1; j < list.size(); j += h) {
-                    if (j >= list.size()-h) continue;
-                    if (less(comparator, list, j+h, j)) {
-                        swap(list, j+h, j);
-                    }else {
-                        continue;
-                    }
-                }
+    public <T> void sort(@NotNull Comparator<T> comparator, @NotNull List<T> list, int h) {
+        for (int i = h; i < list.size(); i++) {
+            int j = i;
+            while (j >= h && less(comparator, list, i, j - h)) {
+                list.set(j, list.get(j - h));
+                j -= h;
             }
+            list.set(j, list.get(i));
         }
     }
 }
