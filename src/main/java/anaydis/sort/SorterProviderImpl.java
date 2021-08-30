@@ -16,6 +16,12 @@ import java.util.Map;
             sorters.put(bubble.getType(), bubble);
             final InsertionSort insertion = new InsertionSort();
             sorters.put(insertion.getType(), insertion);
+            final QuickSort quick = new QuickSort();
+            sorters.put(quick.getType(), quick);
+            final HSort H = new HSort();
+            sorters.put(H.getType(), H);
+            final ShellSort shellSort = new ShellSort();
+            sorters.put(shellSort.getType(), shellSort);
         }
 
         @Override

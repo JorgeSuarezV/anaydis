@@ -2,7 +2,6 @@ package anaydis.sort.performanceTests;
 
 import anaydis.sort.*;
 import anaydis.sort.correctnessTests.IntegerDataSetGenerator;
-import org.junit.Test;
 import java.util.Comparator;
 import java.util.List;
 

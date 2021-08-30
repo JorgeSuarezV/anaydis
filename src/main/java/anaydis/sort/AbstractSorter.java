@@ -54,13 +54,7 @@ public abstract class AbstractSorter implements ObservableSorter {
 
     @Override
     public void removeSorterListener(@NotNull SorterListener listener) {
-        MetricListener listener1 = (MetricListener) listener;
-        for (int i = 0; i < listeners.size(); i++) {
-            if (listener1.equals(listeners.get(i))){
-                listeners.remove(i);
-                return;
-            }
-        }
+        listeners.remove(listener);
     }
 
     public ArrayList<SorterListener> getListeners() {

@@ -14,6 +14,8 @@ public class SortPerformanceTest {
         sorterTypes.add(SorterType.BUBBLE);
         sorterTypes.add(SorterType.INSERTION);
         sorterTypes.add(SorterType.SELECTION);
+        sorterTypes.add(SorterType.QUICK);
+        sorterTypes.add(SorterType.SHELL);
         sizes.add(100);
         sizes.add(500);
         sizes.add(1000);
