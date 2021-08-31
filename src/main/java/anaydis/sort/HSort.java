@@ -6,10 +6,6 @@ import java.util.List;
 
 public class HSort extends AbstractSorter{
 
-    private Comparator<Object> comparator;
-    private List<Object> list;
-    private int h;
-
     public HSort() {
         super(SorterType.H);
     }
@@ -22,10 +18,9 @@ public class HSort extends AbstractSorter{
         for (int i = h; i < list.size(); i++) {
             int j = i;
             while (j >= h && less(comparator, list, i, j - h)) {
-                list.set(j, list.get(j - h));
+                swap(list, j, j -h);
                 j -= h;
             }
-            list.set(j, list.get(i));
         }
     }
 }

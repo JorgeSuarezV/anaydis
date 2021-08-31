@@ -10,7 +10,7 @@ public class FullNameSort {
     FirstNameComparator firstNameComparator = new FirstNameComparator();
     LastNameComparator lastNameComparator = new LastNameComparator();
 
-    public <T> void sort(List<FullName> list){
+    public void sort(List<FullName> list){
         SorterProviderImpl sorterProvider = new SorterProviderImpl();
         Sorter sorter = sorterProvider.getSorterForType(SorterType.BUBBLE);
         sorter.sort(firstNameComparator, list);

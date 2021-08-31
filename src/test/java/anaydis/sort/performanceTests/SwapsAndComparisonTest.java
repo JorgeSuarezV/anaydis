@@ -28,8 +28,8 @@ public class SwapsAndComparisonTest{
     public void printResults(SorterType sorterType, String dataSetType, int size, int swaps, int comparisons){
         System.out.println(sorterType + " " + dataSetType + " " + size+ ": swaps; " + swaps + " comparisons; " + comparisons);
     }
-
+/*
     public void printToCsv(SorterType sorterType, String dataSetType, int size, int swaps, int comparisons){
         System.out.println(sorterType + "," + dataSetType + "," + size+ "," + swaps + "," + comparisons);
-    }
+    }*/
 }
