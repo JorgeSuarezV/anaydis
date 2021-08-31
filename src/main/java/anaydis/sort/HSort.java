@@ -14,12 +14,12 @@ public class HSort extends AbstractSorter{
         sort(comparator, list, 1);
     }
 
-    public <T> void sort(@NotNull Comparator<T> comparator, @NotNull List<T> list, int h) {
-        for (int i = h; i < list.size(); i++) {
+    public <T> void sort(@NotNull Comparator<T> comparator, @NotNull List<T> list, int gap) {
+        for (int i = gap; i < list.size(); i++) {
             int j = i;
-            while (j >= h && less(comparator, list, i, j - h)) {
-                swap(list, j, j -h);
-                j -= h;
+            while (j >= gap && greater(comparator, list, j - gap, j)) {
+                swap(list, j, j -gap);
+                j -= gap;
             }
         }
     }

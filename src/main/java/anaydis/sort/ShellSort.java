@@ -15,8 +15,11 @@ public class ShellSort extends AbstractSorter{
 
     @Override
     public <T> void sort(@NotNull Comparator<T> comparator, @NotNull List<T> list) {
-        int h;
-        for (h = 1; h <= (list.size()-1)/9; h = 3*h+1){
+        int h = 1;
+        while (h <= (list.size()-1)/9){
+            h = 3*h+1;
+        }
+        for ( ; h > 0; h /= 2){
             hSort.sort(comparator, list, h);
         }
     }
