@@ -6,7 +6,7 @@ import anaydis.sort.SorterProviderImpl;
 /**
  * Sorter tests should subclass this abstract implementation
  */
-abstract class SorterTest extends AbstractSorterTest {
+public abstract class SorterTest extends AbstractSorterTest {
 
     private final SorterProviderImpl provider = new SorterProviderImpl();
 

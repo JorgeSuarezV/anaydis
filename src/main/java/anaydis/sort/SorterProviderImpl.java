@@ -4,6 +4,7 @@ import anaydis.sort.*;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
 
     public class SorterProviderImpl implements SorterProvider {
@@ -26,12 +27,16 @@ import java.util.Map;
         }
 
         @Override
-        public @NotNull Iterable<Sorter> getAllSorters() {
+        public @NotNull Iterable<Sorter> getAllSorters(){
             return new ArrayList<>(sorters.values());
         }
 
+        public @NotNull List<SorterType> getAllSorterTypes(){
+            return  new ArrayList<>(sorters.keySet());
+        }
+
         @Override
-        public @NotNull Sorter getSorterForType(@NotNull SorterType type) {
+        public @NotNull Sorter getSorterForType(@NotNull SorterType type){
             return sorters.get(type);
         }
     }

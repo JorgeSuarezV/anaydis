@@ -2,29 +2,23 @@ package anaydis.sort.performanceTests;
 
 import anaydis.sort.SorterProviderImpl;
 import anaydis.sort.SorterType;
+import anaydis.sort.correctnessTests.SorterTest;
 import org.junit.Test;
-import java.util.ArrayList;
+import java.io.IOException;
+import java.util.List;
 
-public class SortPerformanceTest {
+public class SortPerformanceTest extends SorterTest {
     @Test
-    public void performanceTest() {
-        ArrayList<SorterType> sorterTypes = new ArrayList<>();
-        ArrayList<Integer> sizes = new ArrayList<>();
-        SorterProviderImpl sorterProvider = new SorterProviderImpl();
-        sorterTypes.add(SorterType.BUBBLE);
-        sorterTypes.add(SorterType.INSERTION);
-        sorterTypes.add(SorterType.SELECTION);
-        sorterTypes.add(SorterType.QUICK);
-        sorterTypes.add(SorterType.SHELL);
-        sizes.add(100);
-        sizes.add(500);
-        sizes.add(1000);
-        sizes.add(2000);
-        sizes.add(5000);
+    public void performanceTest() throws IOException {
+        Integer[] sizes = new Integer[]{100, 500, 1000, 2000, 5000};
+        SorterProviderImpl sorterProvider = (SorterProviderImpl) getSorterProvider();
+        List<SorterType> sorterTypes = sorterProvider.getAllSorterTypes();
+        sorterTypes.remove(SorterType.H);
         SwapsAndComparisonTest test = new SwapsAndComparisonTest();
+        CSVWriter csvWriter = new CSVWriter("sort data");
         for (SorterType sorterType : sorterTypes) {
             for (Integer size : sizes) {
-                test.asc_Des_Rdm(sorterType, size, sorterProvider);
+                test.asc_Des_Rdm(csvWriter, sorterType, size, sorterProvider);
             }
         }
     }
