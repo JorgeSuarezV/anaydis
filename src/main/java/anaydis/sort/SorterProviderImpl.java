@@ -1,13 +1,14 @@
 package anaydis.sort;
 
+import anaydis.sort.*;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.Map;
 
-    public class SorterProviderImpl implements SorterProvider{
+    public class SorterProviderImpl implements SorterProvider {
 
-        private final Map<SorterType,Sorter> sorters = new EnumMap<>(SorterType.class);
+        private final Map<SorterType, Sorter> sorters = new EnumMap<>(SorterType.class);
 
         public SorterProviderImpl(){
             final SelectionSort selection = new SelectionSort();

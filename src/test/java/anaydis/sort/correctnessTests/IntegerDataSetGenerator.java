@@ -9,11 +9,11 @@ import java.util.Random;
 
 public class IntegerDataSetGenerator implements DataSetGenerator<Integer> {
 
-    List<Integer> ints;
+    List<Integer> ints = null;
+    Random generator = new Random(15);
 
     public void intsGenerator(int length){
         ints = new ArrayList<>();
-        Random generator = new Random(15);
         for (int i = 0; i < length; i++) {
             ints.add(generator.nextInt());
         }
@@ -45,5 +45,4 @@ public class IntegerDataSetGenerator implements DataSetGenerator<Integer> {
     public @NotNull Comparator<Integer> getComparator() {
         return Comparator.naturalOrder();
     }
-
 }

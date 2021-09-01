@@ -3,7 +3,7 @@ package anaydis.sort.correctnessTests;
 import anaydis.sort.SorterType;
 import org.junit.Test;
 
-public class TestPractice02 extends SorterTest {
+public class SortersTest extends SorterTest {
 
     //~ Methods ..................................................................................................................
 

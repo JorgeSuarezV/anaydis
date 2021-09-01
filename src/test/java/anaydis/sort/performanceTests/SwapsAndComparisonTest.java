@@ -2,6 +2,9 @@ package anaydis.sort.performanceTests;
 
 import anaydis.sort.*;
 import anaydis.sort.correctnessTests.IntegerDataSetGenerator;
+import anaydis.sort.MetricListener;
+import anaydis.sort.SorterProviderImpl;
+
 import java.util.Comparator;
 import java.util.List;
 
