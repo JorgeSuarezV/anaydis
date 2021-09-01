@@ -9,7 +9,7 @@ public class CSVWriter {
     private final FileWriter csv;
 
     public CSVWriter(String doc) throws IOException {
-        this.csv = new FileWriter(new File("C:\\Users\\jorge\\faculty\\src\\test\\java\\anaydis\\sort", doc));
+        this.csv = new FileWriter(new File("src\\test\\java\\anaydis\\sort", doc));
     }
 
     public void write(String text)throws IOException{

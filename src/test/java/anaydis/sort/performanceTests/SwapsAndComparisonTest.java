@@ -20,15 +20,15 @@ public class SwapsAndComparisonTest{
         List<Integer> des = dataSetGenerator.createDescending(size);
         List<Integer> rdm = dataSetGenerator.createRandom(size);
         sorter.sort(Comparator.naturalOrder(), asc);
-        //csvWriter.write(sorterType + ",asc," + size + "," + listener.getSwaps() + "," + listener.getComparisons());
+        csvWriter.write(sorterType + ",asc," + size + "," + listener.getSwaps() + "," + listener.getComparisons());
         printResults(sorterType, "asc", size, listener.getSwaps(), listener.getComparisons());
         listener.reset();
         sorter.sort(Comparator.naturalOrder(), des);
-        //csvWriter.write(sorterType + ",des," + size + "," + listener.getSwaps() + "," + listener.getComparisons());
+        csvWriter.write(sorterType + ",des," + size + "," + listener.getSwaps() + "," + listener.getComparisons());
         printResults(sorterType, "asc", size, listener.getSwaps(), listener.getComparisons());
         listener.reset();
         sorter.sort(Comparator.naturalOrder(), rdm);
-        //csvWriter.write(sorterType + ",rdm," + size + "," + listener.getSwaps() + "," + listener.getComparisons());
+        csvWriter.write(sorterType + ",rdm," + size + "," + listener.getSwaps() + "," + listener.getComparisons());
         printResults(sorterType, "asc", size, listener.getSwaps(), listener.getComparisons());
     }
 

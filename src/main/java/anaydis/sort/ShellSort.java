@@ -24,9 +24,9 @@ public class ShellSort extends AbstractSorter{
         }
     }
 
-    public <T> void sort(@NotNull Comparator<T> comparator, @NotNull List<T> list , List<Integer> hs) {
-        for (int i = hs.size()-1; i >= 0; i--) {
-            int h = hs.get(i);
+    public <T> void sort(@NotNull Comparator<T> comparator, @NotNull List<T> list , Integer[] hs) {
+        for (int i = hs.length-1; i >= 0; i--) {
+            int h = hs[i];
             if (h < list.size()) {
                 hSort.sort(comparator, list, h);
             }
