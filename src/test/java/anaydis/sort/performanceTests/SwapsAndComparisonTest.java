@@ -4,7 +4,6 @@ import anaydis.sort.*;
 import anaydis.sort.correctnessTests.IntegerDataSetGenerator;
 import anaydis.sort.MetricListener;
 import anaydis.sort.SorterProviderImpl;
-
 import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
@@ -33,7 +32,7 @@ public class SwapsAndComparisonTest{
         System.out.println(sorterType + " " + dataSetType + " " + size+ ": swaps; " + swaps + " comparisons; " + comparisons);
     }
 
-    public void asc_Des_RdmToCSV(CSVWriter csvWriter, SorterType sorterType, Integer size, SorterProviderImpl sorterProvider) throws IOException {
+    /*public void asc_Des_RdmToCSV(CSVWriter csvWriter, SorterType sorterType, Integer size, SorterProviderImpl sorterProvider) throws IOException {
         MetricListener listener = new MetricListener();
         AbstractSorter sorter = (AbstractSorter) sorterProvider.getSorterForType(sorterType);
         sorter.addSorterListener(listener);
@@ -49,5 +48,5 @@ public class SwapsAndComparisonTest{
         listener.reset();
         sorter.sort(Comparator.naturalOrder(), rdm);
         csvWriter.write(sorterType + ",rdm," + size + "," + listener.getSwaps() + "," + listener.getComparisons());
-    }
+    }*/
 }

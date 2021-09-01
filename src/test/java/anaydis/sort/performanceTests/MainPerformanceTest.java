@@ -1,4 +1,4 @@
-package anaydis.sort.performanceTests;
+/*package anaydis.sort.performanceTests;
 
 import java.io.IOException;
 
@@ -7,4 +7,4 @@ public class MainPerformanceTest {
         SortPerformanceTest sortPerformanceTest = new SortPerformanceTest();
         sortPerformanceTest.performanceTestToCSV();
     }
-}
+}*/
