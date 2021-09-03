@@ -16,6 +16,7 @@ public abstract class AbstractSorter implements ObservableSorter {
         this.type = type;
     }
 
+
     <T> boolean greater(Comparator<T> comparator, List<T> list, int i, int j){
         notifyC(i,j);
         return comparator.compare(list.get(i), list.get(j)) > 0;
@@ -59,5 +60,20 @@ public abstract class AbstractSorter implements ObservableSorter {
 
     public ArrayList<SorterListener> getListeners() {
         return listeners;
+    }
+
+    public <T> int partition(@NotNull Comparator<T> comparator, @NotNull List<T> list, int min, int max){
+        int i = min - 1;
+        int j = max;
+        while(true) {
+            while(less(comparator, list, ++i, max))
+                if (i == max) break;
+            while(less(comparator, list, max, --j))
+                if (j == min) break;
+            if (i >= j) break;
+            swap(list, i, j);
+        }
+        swap(list, i, max);
+        return i;
     }
 }

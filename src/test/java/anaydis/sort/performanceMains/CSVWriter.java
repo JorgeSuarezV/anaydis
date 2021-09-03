@@ -1,4 +1,4 @@
-package anaydis.sort.performanceTests;
+package anaydis.sort.performanceMains;
 
 import java.io.File;
 import java.io.FileWriter;

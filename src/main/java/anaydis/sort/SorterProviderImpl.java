@@ -24,6 +24,10 @@ import java.util.Map;
             sorters.put(H.getType(), H);
             final ShellSort shellSort = new ShellSort();
             sorters.put(shellSort.getType(), shellSort);
+            final QuickSortNonRecursive quickSortNonRecursive = new QuickSortNonRecursive();
+            sorters.put(quickSortNonRecursive.getType(), quickSortNonRecursive);
+            final QuickSortCut quickSortCut = new QuickSortCut();
+            sorters.put(quickSortCut.getType(), quickSortCut);
         }
 
         @Override

@@ -23,6 +23,18 @@ public class InsertionSort extends AbstractSorter{
         }
     }
 
+    public <T> void sortForQuick(@NotNull Comparator<T> comparator, @NotNull List<T> list, int min, int max) {
+        for (int i = min; i < max+1; i++) {
+            for (int j = i; j > min; j--) {
+                if (less(comparator, list, j, j - 1)) {
+                    swap(list, j, j - 1);
+                }else {
+                    break;
+                }
+            }
+        }
+    }
+
     @Override
     public @NotNull SorterType getType() {
         return SorterType.INSERTION;

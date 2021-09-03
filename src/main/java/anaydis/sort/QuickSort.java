@@ -21,19 +21,4 @@ public class QuickSort extends AbstractSorter{
         auxSort(comparator, list, min, i-1);
         auxSort(comparator, list, i+1, max);
     }
-
-    public <T> int partition(@NotNull Comparator<T> comparator, @NotNull List<T> list, int min, int max){
-        int i = min - 1;
-        int j = max;
-        while(true) {
-            while(less(comparator, list, ++i, max))
-                if (i == max) break;
-            while(less(comparator, list, max, --j))
-                if (j == min) break;
-            if (i >= j) break;
-            swap(list, i, j);
-        }
-        swap(list, i, max);
-        return i;
-    }
 }

@@ -73,4 +73,28 @@ public class SortersTest extends SorterTest {
         testSorter(createStringDataSetGenerator(), SorterType.SHELL, 50);
         testSorter(createStringDataSetGenerator(), SorterType.SHELL, 100);
     }
+
+    @Test public void testQuickSortNonRecursiveWithIntegerGenerator() {
+        testSorter(createIntegerDataSetGenerator(), SorterType.QUICK_NON_RECURSIVE, 10);
+        testSorter(createIntegerDataSetGenerator(), SorterType.QUICK_NON_RECURSIVE, 50);
+        testSorter(createIntegerDataSetGenerator(), SorterType.QUICK_NON_RECURSIVE, 100);
+    }
+
+    @Test public void testQuickSortNonRecursiveWithStringGenerator() {
+        testSorter(createStringDataSetGenerator(), SorterType.QUICK_NON_RECURSIVE, 10);
+        testSorter(createStringDataSetGenerator(), SorterType.QUICK_NON_RECURSIVE, 50);
+        testSorter(createStringDataSetGenerator(), SorterType.QUICK_NON_RECURSIVE, 100);
+    }
+
+    @Test public void testQuickSortCutWithIntegerGenerator() {
+        testSorter(createIntegerDataSetGenerator(), SorterType.QUICK_CUT, 10);
+        testSorter(createIntegerDataSetGenerator(), SorterType.QUICK_CUT, 50);
+        testSorter(createIntegerDataSetGenerator(), SorterType.QUICK_CUT, 100);
+    }
+
+    @Test public void testQuickSortCutWithStringGenerator() {
+        testSorter(createStringDataSetGenerator(), SorterType.QUICK_CUT, 10);
+        testSorter(createStringDataSetGenerator(), SorterType.QUICK_CUT, 50);
+        testSorter(createStringDataSetGenerator(), SorterType.QUICK_CUT, 100);
+    }
 }
