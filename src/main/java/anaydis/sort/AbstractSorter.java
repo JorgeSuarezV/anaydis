@@ -27,6 +27,10 @@ public abstract class AbstractSorter implements ObservableSorter {
         return comparator.compare(list.get(i), list.get(j)) < 0;
     }
 
+    <T> boolean equals(Comparator<T> comparator, List<T> list, int i, int j){
+        return  comparator.compare(list.get(i), list.get(j)) == 0;
+    }
+
     <T> void swap(List<T>  list, int i, int j){
         notifyS(i,j);
         list.set(j, list.set(i, list.get(j)));

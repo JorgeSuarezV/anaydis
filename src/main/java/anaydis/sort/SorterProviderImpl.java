@@ -28,6 +28,10 @@ import java.util.Map;
             sorters.put(quickSortNonRecursive.getType(), quickSortNonRecursive);
             final QuickSortCut quickSortCut = new QuickSortCut();
             sorters.put(quickSortCut.getType(), quickSortCut);
+            final QuickSortMedOf3 quickSortMedOf3 = new QuickSortMedOf3();
+            sorters.put(quickSortMedOf3.getType(), quickSortMedOf3);
+            final QuickSort3WayPart quickSort3WayPart = new QuickSort3WayPart();
+            sorters.put(quickSort3WayPart.getType(), quickSort3WayPart);
         }
 
         @Override

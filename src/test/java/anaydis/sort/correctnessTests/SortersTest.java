@@ -97,4 +97,16 @@ public class SortersTest extends SorterTest {
         testSorter(createStringDataSetGenerator(), SorterType.QUICK_CUT, 50);
         testSorter(createStringDataSetGenerator(), SorterType.QUICK_CUT, 100);
     }
+
+    @Test public void testQuickSortMedOf3WithIntegerGenerator() {
+        testSorter(createIntegerDataSetGenerator(), SorterType.QUICK_MED_OF_THREE, 10);
+        testSorter(createIntegerDataSetGenerator(), SorterType.QUICK_MED_OF_THREE, 50);
+        testSorter(createIntegerDataSetGenerator(), SorterType.QUICK_MED_OF_THREE, 100);
+    }
+
+    @Test public void testQuickSortMedOf3WithStringGenerator() {
+        testSorter(createStringDataSetGenerator(), SorterType.QUICK_MED_OF_THREE, 10);
+        testSorter(createStringDataSetGenerator(), SorterType.QUICK_MED_OF_THREE, 50);
+        testSorter(createStringDataSetGenerator(), SorterType.QUICK_MED_OF_THREE, 100);
+    }
 }
