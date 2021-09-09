@@ -16,12 +16,14 @@ public class QuickSortCutMain {
         IntegerDataSetGenerator integerDataSetGenerator = new IntegerDataSetGenerator();
         for (int size : sizes) {
             for (int m = 5; m < 26; m++) {
-                List<Integer> rdm = integerDataSetGenerator.createRandom(size);
-                long startTime = System.nanoTime();
-                sorter.sortByM(Comparator.naturalOrder(), rdm, m, 0,size-1);
-                long endTime = System.nanoTime();
-                long totalTime = endTime - startTime;
-                System.out.println(size + "," + m + "," + totalTime / 1000);
+                for (int i = 0; i < 3; i++) {
+                    List<Integer> rdm = integerDataSetGenerator.createRandom(size);
+                    long startTime = System.nanoTime();
+                    sorter.sortByM(Comparator.naturalOrder(), rdm, m, 0, size - 1);
+                    long endTime = System.nanoTime();
+                    long totalTime = endTime - startTime;
+                    System.out.println(size + "," + m + "," + totalTime / 1000);
+                }
             }
         }
     }

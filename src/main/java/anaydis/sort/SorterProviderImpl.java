@@ -1,6 +1,5 @@
 package anaydis.sort;
 
-import anaydis.sort.*;
 import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.EnumMap;
@@ -32,6 +31,10 @@ import java.util.Map;
             sorters.put(quickSortMedOf3.getType(), quickSortMedOf3);
             final QuickSort3WayPart quickSort3WayPart = new QuickSort3WayPart();
             sorters.put(quickSort3WayPart.getType(), quickSort3WayPart);
+            final TopDownMergeSort topDownMergeSort = new TopDownMergeSort();
+            sorters.put(topDownMergeSort.getType(), topDownMergeSort);
+            final BottomUpMergeSort bottomUpMergeSort = new BottomUpMergeSort();
+            sorters.put(bottomUpMergeSort.getType(), bottomUpMergeSort);
         }
 
         @Override

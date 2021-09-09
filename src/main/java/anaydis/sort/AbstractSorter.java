@@ -80,4 +80,29 @@ public abstract class AbstractSorter implements ObservableSorter {
         swap(list, i, max);
         return i;
     }
+
+    public <T> void merge(Comparator<T> comparator, List<T> list, int l, int m, int r) {
+        List<T> aux = new ArrayList<>(list.size());
+        for (int i = 0; i < r + 1; i++) {
+            aux.add(null);
+        }
+        for (int i = l; i <= m; i++) {
+            copy(aux, i, list, i);
+        }
+        for (int j = m + 1; j <= r; j++) {
+            copy(aux, r + (m + 1) - j, list, j);
+        }
+        for (int k = l, i = l, j = r; k <= r; k++) {
+            if(greater(comparator, aux, i, j)) {
+                copy(list, k, aux, j--);
+            } else {
+                copy(list, k, aux, i++);
+            }
+        }
+    }
+
+    public <T> void copy(List<T> list1, int i, List<T> list2, int j){
+        T obj2 = list2.get(j);
+        list1.set(i, obj2);
+    }
 }
