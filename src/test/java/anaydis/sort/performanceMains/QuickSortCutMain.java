@@ -1,8 +1,9 @@
 package anaydis.sort.performanceMains;
 
-import anaydis.sort.MetricListener;
-import anaydis.sort.QuickSortCut;
+import anaydis.sort.*;
 import anaydis.sort.correctnessTests.IntegerDataSetGenerator;
+import anaydis.sort.QuickSortCut;
+
 import java.util.Comparator;
 import java.util.List;
 
@@ -10,7 +11,8 @@ public class QuickSortCutMain {
     public static void main(String[] args) {
 
         Integer[] sizes = new Integer[]{1000, 5000, 10000, 50000, 100000, 500000, 1000000};
-        QuickSortCut sorter = new QuickSortCut();
+        SorterProvider sorterProvider = new SorterProviderImpl();
+        QuickSortCut sorter = (QuickSortCut) sorterProvider.getSorterForType(SorterType.QUICK_CUT);
         MetricListener listener = new MetricListener();
         sorter.addSorterListener(listener);
         IntegerDataSetGenerator integerDataSetGenerator = new IntegerDataSetGenerator();

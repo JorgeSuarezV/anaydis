@@ -7,9 +7,9 @@ import java.util.List;
 
 public class ShellSort extends AbstractSorter{
 
-    HSort hSort = new HSort();
+    final HSort hSort = new HSort();
 
-    public ShellSort() {
+    protected ShellSort() {
         super(SorterType.SHELL);
     }
 

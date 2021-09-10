@@ -1,26 +1,29 @@
 package anaydis.sort;
 
+import anaydis.sort.InsertionSort;
+import anaydis.sort.SorterType;
 import anaydis.sort.gui.SorterListener;
+import anaydis.sort.AbstractQuicksort;
 import org.jetbrains.annotations.NotNull;
 import java.util.Comparator;
 import java.util.List;
 
-public class QuickSortCut extends AbstractSorter{
+public class QuickSortCut extends AbstractQuicksort {
 
-    InsertionSort insertionSort = new InsertionSort();
+    final InsertionSort insertionSort = new InsertionSort();
 
-    public QuickSortCut() {
+    protected QuickSortCut() {
         super(SorterType.QUICK_CUT);
     }
 
     @Override
     public <T> void sort(@NotNull Comparator<T> comparator, @NotNull List<T> list) {
-        sortByM(comparator, list, 10, 0, list.size()-1);
+        sortByM(comparator, list, 6, 0, list.size()-1);
     }
 
     public <T> void sortByM(@NotNull Comparator<T> comparator, @NotNull List<T> list, int M, int min, int max) {
         if (max - min <= M) {
-            insertionSort.sortForQuick(comparator, list, min, max);
+            insertionSort.sort(comparator, list, min, max);
             return;
         }
         int i = partition(comparator, list, min, max);
@@ -30,12 +33,12 @@ public class QuickSortCut extends AbstractSorter{
     @Override
     public void addSorterListener(@NotNull SorterListener listener) {
         insertionSort.addSorterListener(listener);
-        getListeners().add(listener);
+        super.addSorterListener(listener);
     }
 
 
     public void removeSorterListener(@NotNull final SorterListener listener){
         insertionSort.removeSorterListener(listener);
-        getListeners().remove(listener);
+        super.removeSorterListener(listener);
     }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class SelectionSort extends AbstractSorter{
 
-    public SelectionSort() {
+    protected SelectionSort() {
         super(SorterType.SELECTION);
     }
 

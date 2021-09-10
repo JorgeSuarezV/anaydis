@@ -1,7 +1,6 @@
 package anaydis.sort.performanceMains;
 
-import anaydis.sort.MetricListener;
-import anaydis.sort.ShellSort;
+import anaydis.sort.*;
 import anaydis.sort.correctnessTests.IntegerDataSetGenerator;
 import java.util.Comparator;
 import java.util.List;
@@ -12,7 +11,8 @@ public class ShellSortPerformanceMain {
         Integer[] list16577 = new Integer[]{1, 8, 23, 77, 281, 1073, 4193, 16577};
         Integer[] list9841 = new Integer[]{1, 4, 13, 40, 121, 364, 1093, 3280, 9841};
         Integer[] sizes = new Integer[]{1000, 5000, 10000};
-        ShellSort sorter = new ShellSort();
+        SorterProvider sorterProvider = new SorterProviderImpl();
+        ShellSort sorter = (ShellSort) sorterProvider.getSorterForType(SorterType.SHELL);
         MetricListener listener = new MetricListener();
         sorter.addSorterListener(listener);
         IntegerDataSetGenerator integerDataSetGenerator = new IntegerDataSetGenerator();

@@ -6,9 +6,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Stack;
 
-public class QuickSortNonRecursive extends AbstractSorter{
+public class QuickSortNonRecursive extends AbstractQuicksort {
 
-    public QuickSortNonRecursive() {
+    protected QuickSortNonRecursive() {
         super(SorterType.QUICK_NON_RECURSIVE);
     }
 

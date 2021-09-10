@@ -6,7 +6,7 @@ import java.util.List;
 
 public class BubbleSort extends AbstractSorter{
 
-    public BubbleSort() {
+    protected BubbleSort() {
         super(SorterType.BUBBLE);
     }
 

@@ -1,12 +1,14 @@
 package anaydis.sort;
 
+import anaydis.sort.AbstractQuicksort;
+import anaydis.sort.SorterType;
 import org.jetbrains.annotations.NotNull;
 import java.util.Comparator;
 import java.util.List;
 
-public class QuickSort extends AbstractSorter{
+public class QuickSort extends AbstractQuicksort {
 
-    public QuickSort() {
+    protected QuickSort() {
         super(SorterType.QUICK);
     }
 
@@ -15,7 +17,7 @@ public class QuickSort extends AbstractSorter{
         auxSort(comparator, list, 0 , list.size()-1);
     }
 
-    public <T> void auxSort(@NotNull Comparator<T> comparator, @NotNull List<T> list, int min, int max){
+    private <T> void auxSort(@NotNull Comparator<T> comparator, @NotNull List<T> list, int min, int max){
         if (max <= min) return;
         int i = partition(comparator, list, min, max);
         auxSort(comparator, list, min, i-1);

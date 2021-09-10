@@ -43,9 +43,6 @@ public class MetricListenerTest {
         sorter1.removeSorterListener(listener1);
         sorter2.removeSorterListener(listener2);
         sorter3.removeSorterListener(listener3);
-        Assert.assertTrue(sorter1.getListeners().isEmpty());
-        Assert.assertTrue(sorter2.getListeners().isEmpty());
-        Assert.assertTrue(sorter3.getListeners().isEmpty());
         Assert.assertEquals(44, listener1.getComparisons());
         Assert.assertEquals(22, listener1.getSwaps());
         Assert.assertEquals(31, listener2.getComparisons() );
