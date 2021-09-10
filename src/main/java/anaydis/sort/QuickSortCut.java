@@ -1,9 +1,6 @@
 package anaydis.sort;
 
-import anaydis.sort.InsertionSort;
-import anaydis.sort.SorterType;
 import anaydis.sort.gui.SorterListener;
-import anaydis.sort.AbstractQuicksort;
 import org.jetbrains.annotations.NotNull;
 import java.util.Comparator;
 import java.util.List;
