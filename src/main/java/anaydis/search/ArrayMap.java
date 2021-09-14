@@ -18,6 +18,7 @@ public class ArrayMap<K, V> implements Map<K, V> {
         keys = fillK(20);
         values = fillV(20);
     }
+
     public ArrayMap(Comparator<K> comparator, int max) {
         this.comparator = comparator;
         keys = fillK(max);
@@ -59,6 +60,7 @@ public class ArrayMap<K, V> implements Map<K, V> {
                 keys.set(i, keys.get(i - 1));
                 values.set(i, values.get(i - 1));
             }
+            size++;
             keys.set(index, key);
         } else {
             toReturn = values.get(index);
