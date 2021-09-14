@@ -53,7 +53,7 @@ public class ArrayMap<K, V> implements Map<K, V> {
 
     @Override
     public V put(@NotNull K key, V value) {
-        var index = find(key, 0, size-1);
+        int index = find(key, 0, size-1);
         V toReturn = null;
         if(index < 0) {
             index = (-index) -1;

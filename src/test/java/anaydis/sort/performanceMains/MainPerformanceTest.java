@@ -11,7 +11,7 @@ import java.util.List;
 
 public class MainPerformanceTest {
     public static void main(String[] args) throws IOException {
-        performanceTest(1);
+        performanceTest(0);
     }
     public static void performanceTest(int csv) throws IOException {
         Integer[] sizes = new Integer[]{100, 500, 1000, 2000, 5000};
