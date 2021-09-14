@@ -1,8 +1,6 @@
-package anaydis.map;
+package anaydis.search;
 
-import anaydis.search.Map;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
