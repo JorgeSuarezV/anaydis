@@ -28,7 +28,14 @@ public abstract class AbstractSorter implements ObservableSorter {
     }
 
     protected <T> boolean equals(Comparator<T> comparator, List<T> list, int i, int j){
+        notifyE(i,j);
         return  comparator.compare(list.get(i), list.get(j)) == 0;
+    }
+
+    protected void notifyE(int i, int j){
+        for (SorterListener listener : listeners) {
+            listener.equals(i, j);
+        }
     }
 
     protected <T> void swap(List<T>  list, int i, int j){

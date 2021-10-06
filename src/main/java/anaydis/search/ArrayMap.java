@@ -100,9 +100,8 @@ public class ArrayMap<K, V> implements Map<K, V> {
         int middle = (low + high) / 2;
         int cmp = comparator.compare(key, keys.get(middle));
         if(cmp == 0) return middle;
-        if (cmp < 0) find(key, low, middle - 1);
+        if(cmp < 0) find(key, low, middle - 1);
         else find(key, middle + 1, high);
-        return -1;
+        return 0;
     }
-
 }
