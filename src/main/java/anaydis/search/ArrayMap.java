@@ -79,7 +79,7 @@ public class ArrayMap<K, V> implements Map<K, V> {
         return keys.iterator();
     }
 
-    private List<K> fillK(int max){
+    private @NotNull List<K> fillK(int max){
         List<K> list = new ArrayList<>(max);
         for (int i = 0; i < max; i++) {
             list.add(null);
@@ -87,7 +87,7 @@ public class ArrayMap<K, V> implements Map<K, V> {
         return list;
     }
 
-    private List<V> fillV(int max){
+    private @NotNull List<V> fillV(int max){
         List<V> list = new ArrayList<>(max);
         for (int i = 0; i < max; i++) {
             list.add(null);
