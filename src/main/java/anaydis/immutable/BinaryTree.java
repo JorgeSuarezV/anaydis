@@ -36,7 +36,9 @@ public class BinaryTree<K, V> implements Map<K, V> {
 
     @Override
     public V get(@NotNull K key) {
-        return find(head, key).getValue();
+        DoubleNode<K, V> result = find(head, key);
+        if (result == null) return null;
+        return result.getValue();
     }
 
     @Override
