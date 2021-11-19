@@ -12,17 +12,17 @@ public class RunLenghtEncoder implements Compressor{
     public void encode(@NotNull InputStream input, @NotNull OutputStream output) throws IOException {
         int previous = input.read();
         int actual = input.read();
-        int count = 1;
+        int count = 0;
         if (actual != -1) {
-            while (actual != -1) {
+            while (previous != -1) {
                 if (previous == actual && count < 256) {
                     count++;
                 } else {
                     if(count != 1){
                         output.write(0xFF);
-                        output.write(previous);
+                        output.write(count);
                     }
-                    output.write(count);
+                    output.write(previous);
                     count = 1;
                 }
                 previous = actual;
