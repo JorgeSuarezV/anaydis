@@ -50,7 +50,7 @@ public class ArrayMap<K, V> implements Map<K, V> {
             index = (-index) -1;
             keys.add(null);
             values.add(null);
-            for (int i = size() - 1 + 1; i > index; i--) {
+            for (int i = size() - 1; i > index; i--) {
                 keys.set(i, keys.get(i - 1));
                 values.set(i, values.get(i - 1));
             }
