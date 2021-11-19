@@ -53,7 +53,6 @@ public class ArrayMap<K, V> implements Map<K, V> {
     @Override
     public V put(@NotNull K key, V value) {
         int index = find(key, 0, size-1);
-
         if(index < 0) {
             index = (-index) -1;
             for (int i = size + 1; i > index; i--) {
@@ -62,6 +61,7 @@ public class ArrayMap<K, V> implements Map<K, V> {
             }
             size++;
             keys.set(index, key);
+            values.set(index,value);
         }
         return values.set(index, value);
     }
