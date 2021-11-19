@@ -7,8 +7,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class BankersQueue<T> implements Queue<T> {
 
-    private List<T> in;
-    private List<T> out;
+    private final List<T> in;
+    private final List<T> out;
 
     public BankersQueue(List<T> in, List<T> out) {
         this.in = in;
@@ -25,9 +25,9 @@ public class BankersQueue<T> implements Queue<T> {
         if(out.isEmpty()){
             List<T> inAux = List.nil();
             List<T> outAux = in.reverse();
-            return new Result<T>(outAux.head(), new BankersQueue<T>(inAux, outAux.tail()));
+            return new Result<>(outAux.head(), new BankersQueue<>(inAux, outAux.tail()));
         }
-        return new Result<>(out.head(), new BankersQueue<T>(in, out.tail()));
+        return new Result<>(out.head(), new BankersQueue<>(in, out.tail()));
     }
 
     @Override
