@@ -1,7 +1,6 @@
-package anaydis.inmutable;
+package anaydis.immutable;
 
 
-import anaydis.immutable.List;
 import org.jetbrains.annotations.NotNull;
 
 public class Node<T> implements List<T> {

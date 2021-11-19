@@ -1,4 +1,4 @@
-package anaydis.inmutable;
+package anaydis.immutable;
 
 public class DoubleNode <K, V> {
     private final K key;

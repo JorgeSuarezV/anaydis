@@ -1,4 +1,4 @@
-package anaydis.inmutable;
+package anaydis.immutable;
 
 public class PutResult<K, V> {
     DoubleNode<K,V> node;

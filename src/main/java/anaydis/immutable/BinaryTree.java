@@ -1,7 +1,6 @@
-package anaydis.inmutable;
+package anaydis.immutable;
 
 
-import anaydis.immutable.Map;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
