@@ -20,7 +20,7 @@ public class BankersQueue<T> implements Queue<T> {
 
     @Override
     public @NotNull Result<T> dequeue() {
-        if(!in.isEmpty() && out.isEmpty()){
+        if(in.isEmpty() && !out.isEmpty()){
             List<T> inAux = List.nil();
             List<T> outAux = in.reverse();
             return new Result<>(outAux.head(), new BankersQueue<>(inAux, outAux.tail()));
