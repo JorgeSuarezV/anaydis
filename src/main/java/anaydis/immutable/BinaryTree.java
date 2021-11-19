@@ -13,8 +13,8 @@ public class BinaryTree<K, V> implements Map<K, V> {
     private int size = 0;
     private final Comparator<K> comparator;
 
-    public BinaryTree(DoubleNode<K, V> head, Comparator<K> comparator) {
-        this.head = head;
+    public BinaryTree(Comparator<K> comparator) {
+        head = null;
         this.comparator = comparator;
     }
 
