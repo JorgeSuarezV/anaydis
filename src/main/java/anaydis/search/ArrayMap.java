@@ -24,11 +24,6 @@ public class ArrayMap<K, V> implements Map<K, V> {
     }
 
     @Override
-    public boolean isEmpty() {
-        return Map.super.isEmpty();
-    }
-
-    @Override
     public boolean containsKey(@NotNull K key) {
         for (int i = 0; i <= size() - 1; i++) {
             if (key.equals(keys.get(i))) return true;
