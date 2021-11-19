@@ -30,7 +30,7 @@ public class ArrayMap<K, V> implements Map<K, V> {
 
     @Override
     public boolean containsKey(@NotNull K key) {
-        for (int i = 0; i <= size(); i++) {
+        for (int i = 0; i <= size() - 1; i++) {
             if (key.equals(keys.get(i))) return true;
         }
         return false;
@@ -38,7 +38,7 @@ public class ArrayMap<K, V> implements Map<K, V> {
 
     @Override
     public V get(@NotNull K key) {
-        int index = find(key, 0, size()-1);
+        int index = find(key, 0, size() - 1);
         if (index < 0) return null;
         return values.get(index);
     }
@@ -50,7 +50,7 @@ public class ArrayMap<K, V> implements Map<K, V> {
             index = (-index) -1;
             keys.add(null);
             values.add(null);
-            for (int i = size() + 1; i > index; i--) {
+            for (int i = size() - 1 + 1; i > index; i--) {
                 keys.set(i, keys.get(i - 1));
                 values.set(i, values.get(i - 1));
             }
