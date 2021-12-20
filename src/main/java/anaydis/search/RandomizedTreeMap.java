@@ -1,31 +1,47 @@
 package anaydis.search;
 
-import anaydis.immutable.DoubleNode;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
 
-public class RandomizedTreeMap<K,V> extends TreeMap<K, V> {
+public class RandomizedTreeMap<K,V> extends TreeMap<K, V>{
 
-
-    private DoubleNode<K, V> head;
+    private DoubleNode<K,V> head;
     private final Comparator<K> comparator;
 
     public RandomizedTreeMap(Comparator<K> comparator) {
+        initRandTreeMap();
         this.comparator = comparator;
+    }
+    private void initRandTreeMap(){
+        this.size = 0;
+        this.head = null;
     }
 
     @Override
     public boolean containsKey(@NotNull K key) {
-        return find(head, key) != null;
+        return find(head,key) != null;
     }
 
     @Override
     public V get(@NotNull K key) {
-        final DoubleNode<K, V> result = find(head, key);
-        return result == null ? null : result.getValue();
+        DoubleNode<K,V> doubleNode = find(head,key);
+        if(doubleNode == null) return null;
+        return doubleNode.getValue();
+    }
+    private DoubleNode<K,V> find(DoubleNode<K,V> doubleNode, K key){
+        if(doubleNode == null) return null;
+        int n = comparator.compare(key, doubleNode.getKey());
+        if(n == 0){
+            return doubleNode;
+        }else if(n < 0){
+            return find(doubleNode.getLeft(), key);
+        }else{
+            return find(doubleNode.getRight(),key);
+        }
     }
 
     @Override
@@ -37,54 +53,74 @@ public class RandomizedTreeMap<K,V> extends TreeMap<K, V> {
         return result;
     }
 
-
-
-    private DoubleNode<K,V> rootPut(DoubleNode<K,V> node, @NotNull K key, V value) {
-
+    private DoubleNode<K,V> putAux(DoubleNode<K,V> node, K key, V value) {
+        if(node == null){
+            size++;
+            return new DoubleNode<>(key,value);
+        }
+        else{
+            int n = comparator.compare(key,node.getKey());
+            if (n < 0) node.setLeft(putAux(node.getLeft(),key,value));
+            else if(n > 0) node.setRight(putAux(node.getRight(),key,value));
+            else{
+                prevValue = node.getValue();
+                node.setValue(value);
+            }
+            return node;
+        }
     }
 
-    private DoubleNode<K,V> rotateRight(DoubleNode<K, V> node) {
-        DoubleNode<K,V> result = node.getLeft().getCopy();
-        node.setLeft(result.getRight());
-        result.setRight(node);
+    private DoubleNode<K,V> putRoot(DoubleNode<K,V> doubleNode, K key, V value) {
+        if (doubleNode == null) {
+            size++;
+            return new DoubleNode<>(key, value);
+        }else{
+            int n = comparator.compare(key, doubleNode.getKey());
+            if (n < 0){
+                doubleNode.setLeft(putRoot(doubleNode.getLeft(), key, value));
+                return rotateRight(doubleNode);
+            } else if (n > 0) {
+                doubleNode.setRight(putRoot(doubleNode.getRight(), key, value));
+                return rotateLeft(doubleNode);
+            }else{
+                prevValue = doubleNode.getValue();
+                doubleNode.setValue(value);
+                return doubleNode;
+            }
+        }
+    }
+
+    private DoubleNode<K,V> rotateLeft(DoubleNode<K,V> doubleNode){
+        DoubleNode<K,V> result = doubleNode.getRight().getCopy();
+        doubleNode.setRight(result.getLeft());
+        result.setLeft(doubleNode);
         return result;
     }
 
-    private DoubleNode<K,V> rotateLeft(DoubleNode<K, V> node) {
-        DoubleNode<K, V> result = node.getRight().getCopy();
-        node.setRight(result.getLeft());
-        result.setLeft(node);
+    private DoubleNode<K,V> rotateRight(DoubleNode<K,V> doubleNode){
+        DoubleNode<K,V> result = doubleNode.getLeft().getCopy();
+        doubleNode.setLeft(result.getRight());
+        result.setRight(doubleNode);
         return result;
     }
 
     @Override
     public void clear() {
-        size = 0;
-        head = null;
+        initRandTreeMap();
     }
 
     @Override
     public Iterator<K> keys() {
-        ArrayList<K> keys = new ArrayList<>();
-        keysInOrder(head, keys);
-        return keys.iterator();
+        List<K> list = new ArrayList<>();
+        keysAux(head, list);
+        return list.iterator();
     }
 
-    private void keysInOrder(DoubleNode<K, V> node, @NotNull ArrayList<K> result){
-        if(node != null) {
-            keysInOrder(node.getLeft(), result);
-            result.add(node.getKey());
-            keysInOrder(node.getRight(), result);
+    private void keysAux(DoubleNode<K,V> node, List<K> keys) {
+        if(node != null){
+            keysAux(node.getLeft(),keys);
+            keys.add(node.getKey());
+            keysAux(node.getRight(),keys);
         }
     }
-
-    private DoubleNode<K,V> find(DoubleNode<K, V> node, @NotNull K key){
-        if(node == null) return null;
-        int cmp = comparator.compare(key, node.getKey());
-        if(cmp == 0) return node;
-        if(cmp < 0) return find(node.getLeft(), key);
-        return find(node.getRight(), key);
-    }
-
-
 }

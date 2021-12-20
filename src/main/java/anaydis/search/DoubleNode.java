@@ -1,6 +1,6 @@
-package anaydis.immutable;
+package anaydis.search;
 
-public class DoubleNode <K, V> {
+public class DoubleNode<K, V> {
     private final K key;
     private V value;
     private DoubleNode<K, V> left;

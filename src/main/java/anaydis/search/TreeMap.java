@@ -1,7 +1,5 @@
 package anaydis.search;
 
-import java.util.Map;
-
 abstract class TreeMap<K,V> implements Map<K,V> {
 
     protected int size;
