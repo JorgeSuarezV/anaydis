@@ -63,7 +63,7 @@ public class BinaryTree<K, V> implements Map<K, V> {
                 result = new PutResult<>(new DoubleNode<>(node.getKey(), node.getValue(), node.getLeft(), rightR.node), rightR.inserted);
             }
             else {
-                DoubleNode<K,V> copyNode = node.getCopy(node);
+                DoubleNode<K,V> copyNode = node.getCopy();
                 copyNode.setValue(value);
                 result = new PutResult<>(copyNode, false);
             }
