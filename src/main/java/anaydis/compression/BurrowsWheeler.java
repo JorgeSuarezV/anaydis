@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
-public class BurrowWheelers implements Compressor{
+public class BurrowsWheeler implements Compressor{
     @Override
     public void encode(@NotNull InputStream inputStream, @NotNull OutputStream outputStream) throws IOException {
         ArrayList<Integer> rotations = new ArrayList<>();
